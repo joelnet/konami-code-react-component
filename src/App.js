@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import reactLogo from "./logo.svg";
+import konamiLogo from "./konami-logo.svg";
+import "./App.css";
+import { useKonamiCode } from "./SecretCode/useKonamiCode";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const konami = useKonamiCode();
+	const logo = konami ? konamiLogo : reactLogo;
+
+	return (
+		<div className="App">
+			<header className="App-header">
+				<img src={logo} className="App-logo" alt="logo" />
+			</header>
+		</div>
+	);
 }
 
 export default App;
