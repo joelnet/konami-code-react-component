@@ -7,15 +7,19 @@ export const useSecretCode = (secretCode) => {
 	const key = useInputEvent();
 
 	useEffect(() => {
+		// ignore keyup
 		if (key == null) return;
-		console.log(`useSecretCode.key = ${key}`);
-		console.log(`useSecretCode.count = ${count}`);
+
+		// reset if invalid key
 		if (key !== secretCode[count]) {
 			setCount(0);
 			return;
 		}
 
+		// valid key
 		setCount((state) => state + 1);
+
+		// code complete
 		if (count + 1 === secretCode.length) {
 			setSuccess(true);
 		}
