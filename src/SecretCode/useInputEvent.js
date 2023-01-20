@@ -4,7 +4,7 @@ export const useInputEvent = () => {
 	const [key, setKey] = useState(null);
 
 	useEffect(() => {
-		const keyDownHandler = ({ code }) => setKey(code);
+		const keyDownHandler = ({ key }) => setKey(key);
 		const keyUpHandler = () => setKey(null);
 
 		global.addEventListener("keydown", keyDownHandler);
